@@ -24,7 +24,49 @@
 		<h2>Min sida</h2>
 		<p>Välkommen till min sida</p>
 		<form action="min-sida.html" method="post">
-			<input type="datetime">
+			<fieldset>
+				<legend>Ändra personliga uppgifter!</legend>
+				<p>
+					<label for="email">E-Postadress:</label>
+					<input name="email" id="email" type="email" required>
+				</p>
+				<p>
+					<label for="telefon">Telefonnummer</label>
+					<input name="telefon" id="telefon" type="tel" required>
+				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Välj ditt favoritlag!</legend>
+				<p>
+					<input type="radio" name="favoritlag" value="hv71" id="hv71">
+					<label for="hv71">HV71</label>
+				</p>
+				<p>
+					<input type="radio" name="favoritlag" value="hammarby" id="hammarby">
+					<label for="hammarby">Hammarby</label>
+				</p>
+				<p>
+					<input type="radio" name="favoritlag" value="aik" id="aik">
+					<label for="aik">AIK</label>
+				</p>
+				<p>
+					<input type="radio" name="favoritlag" value="vaxjo-lakers" id="vaxjo-lakers">
+					<label for="vaxjo-lakers">Växjö Lakers</label>
+				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Välj din favoritarena</legend>
+				<p>
+					<select name="favoritarena">
+						<option value="soder-stadion">Söder stadion</option>
+						<option value="vida-arena">Vida Arena</option>
+					</select>
+				</p>
+			</fieldset>
+			<p>
+					<input type="submit" value="Skicka iväg svar">
+			</p>
+			
 		</form>
 	</main>
 	<footer>

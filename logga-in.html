@@ -22,19 +22,21 @@
 	</nav>
 	<main>
 		<form action="min-sida.html" method="post">
-			<legend>Logga in</legend>
-			<p>Logga in för att välja favoritlag, med mera!</p>
-			<p>
-				<label for="anvandarnamn">Användarnamn</label>
-				<input name="anvandarnamn" id="anvandarnamn" required>
-			</p>
-			<p>
-				<label for="losenord">Lösenord</label>
-				<input name="losenord" type="password" id="losenord" required>
-			</p>
-			<p>
-				<input type="submit" value="Logga in">
-			</p>
+			<fieldset>
+				<legend>Logga in</legend>
+				<p>Logga in för att välja favoritlag, med mera!</p>
+				<p>
+					<label for="email">E-Postadress:</label>
+					<input name="email" id="email" type="email" required>
+				</p>
+				<p>
+					<label for="losenord">Lösenord:</label>
+					<input name="losenord" type="password" id="losenord" required>
+				</p>
+				<p>
+					<input type="submit" value="Logga in">
+				</p>
+			</fieldset>
 		</form>
 	</main>
 	<footer>
