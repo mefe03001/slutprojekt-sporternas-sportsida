@@ -1,50 +1,72 @@
-/* Typselektor fˆr html. ƒndrar bakgrundsf‰rgen med hexademal f‰rg */
+/* Typselektor f√∂r html. √Ñndrar bakgrundsf√§rgen med hexademal f√§rg */
 html {
 	background-color: #cdc9c9;
 }
 
-/* Typselektor fˆr body. Skapar gridtemplate. Maxbredd pÂ 900px. Centrerar automatiskt, l‰mnar 20px pÂ toppen. 3px solid svart ram, rundar kanten med 5px. Bakgrundf‰rgen ska vara vit. Skapar skugga bakom. */
+/* Typselektor f√∂r body. Skapar gridtemplate. Maxbredd p√• 900px. Centrerar automatiskt, l√§mnar 20px p√• toppen. 3px solid svart ram, rundar kanten med 5px. Bakgrundf√§rgen ska vara vit. Skapar skugga bakom. */
 body {
+	/* Skapar grid som m√∂jligg√∂r f√∂r trespaltslayout */
 	display: grid;
 	grid-template-columns: 2fr 2fr 6fr;
 	grid-template-rows: auto;
+	
+	/*  */
 	max-width: 900px;
 	margin: auto;
 	margin-top: 20px;
+	
+	/* Skapar kant och g√∂r den rund */
 	border: 3px solid black;
 	border-radius: 5px;
+	
+	/* G√∂r bakgrundsf√§rgen vit och skapar en skugga bakom bodyn */
 	background-color: white;
 	box-shadow: 0 0 600px black;
 }
 
-/* grupptypselektor fˆr img, table, iframe, svg och video. Gˆr sÂ att maxbredden ‰r 100% av den tillg‰ngliga ytan.*/
+/* grupptypselektor f√∂r img, table, iframe, svg och video. G√∂r s√• att maxbredden √§r 100% av den tillg√§ngliga ytan, detta g√∂r s√• att det alltid tar upp s√• mycket plats som m√∂jligt medans det inte tar upp mer utrymme √§n vad som √§r m√∂jligt s√• att man inte beh√∂ver scrolla √•t sidan. */
 img, table, iframe, svg, video {
 	max-width: 100%;
 }
 
-/* Typselektor fˆr header, nav, main och footer. Gˆr sÂ att de har en 1px svart ram. */
+/* Typselektor f√∂r header, nav, main och footer. G√∂r s√• att de har en 1px svart ram. */
 header, nav, main, footer {
 	border: 1px solid black;
 }
 
-/* Barnselektor fˆr h1 fˆrsta bokstav som ligger under header. Gˆr textstorleken till 2.5ex. */
+/* Barnselektor f√∂r h1 f√∂rsta bokstav som ligger under header. G√∂r textstorleken till 2.5ex. */
 header > h1::first-letter {
 	font-size: 2.5ex;
 }
 
-/* Typselektor fˆr header. St‰ller in grid, centrerar texten, ‰ndrar textstorleken, ‰ndrar textf‰rgen, skapar en skugga till texten, ‰ndrar font. */
+/* Typselektor f√∂r header */
 header {
+	/* St√§ller in vilken plats gridden ska ha */
 	grid-column: 2 / 4;
 	grid-row: 1;
+	
+	/* √Ñndrar font, centrerar text, skapar skugga bakom texten, √§ndrar textstorleken och √§ndrar f√§rgen p√• texten */
+	font-family: avara-bold, "Comic Sans MS", serif;
 	text-align: center;
-	padding: 20px;
+	text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em darkblue;
 	font-size: 1.2em;
 	color: white;
-	text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em darkblue;
-	font-family: avara-bold, "Comic Sans MS", serif;
+	
+	/* L√§gger till padding s√• att texten inte ligger precis intill kanterna */
+	padding: 20px;
 }
 
-/* Typselektor fˆr nav. St‰ller in grid, tar bort list stylee, ‰ndrar fontstorlek. */
+/* Barnselektor f√∂r h1 under header. Roterar texten -4 grader. G√∂r s√• att texten kan transformeras */
+header > h1 {
+	transform: rotate(-4deg);
+	transition: transform 1s;
+}
+/*  */
+header > h1:hover {
+	transform: rotate(356deg);
+}
+
+/* Typselektor f√∂r nav. St√§ller in grid, tar bort list stylee, √§ndrar fontstorlek. */
 nav {
 	grid-column: 1;
 	grid-row: 1 / 4;
@@ -52,18 +74,18 @@ nav {
 	font-size: 1.3em;
 }
 
-/* Typselektor fˆr nav med j‰mnt nummer. L‰gger till padding pÂ toppen. */
+/* Typselektor f√∂r nav med j√§mnt nummer. L√§gger till padding p√• toppen. */
 nav:nth-child(even) {
 	padding-top: 20px;
 }
 
-/* Syskonselektor fˆr andra nav. St‰ller in grid. */
+/* Syskonselektor f√∂r andra nav. St√§ller in grid. */
 nav + nav {
 	grid-column: 2;
 	grid-row: 2;
 }
 
-/* Barnselektor fˆr li under ul under nav. St‰nger av list-style, centrerar texten, ‰ndar fontstorlek, l‰gger till padding. */
+/* Barnselektor f√∂r li under ul under nav. St√§nger av list-style, centrerar texten, √§ndar fontstorlek, l√§gger till padding. */
 nav > ul > li {
 	list-style: none;
 	text-align: center;
@@ -71,148 +93,185 @@ nav > ul > li {
 	padding: 4px;
 } 
 
-/* ƒndrar f‰rgen fˆr l‰nk under li under ul under nav. */
+/* √Ñndrar f√§rgen f√∂r l√§nk under li under ul under nav. */
 nav > ul > li > a:link {
 	color: rgb(0, 0, 0);
 }
 
-/* Fˆr l‰nk n‰r man hÂller ˆver den under li under ul under nav. Skapar outline, skugga, skapar bakgrundsgradient. */
+/* F√∂r l√§nk n√§r man h√•ller √∂ver den under li under ul under nav. Skapar border, skugga, skapar bakgrundsgradient. */
 nav > ul > li:hover {
-	outline: 2px solid black;
+	border: 2px solid black;
 	text-shadow: 2px 2px 4px #000000;
 	box-shadow: 00px 0px 5px black;
 	background-image: linear-gradient(180deg, white, gray);
 }
 
-/* ƒndrar f‰rgen pÂ linkar under li under ul under nav */
+/* √Ñndrar f√§rgen p√• linkar under li under ul under nav */
 nav > ul > li > a:hover {
 	color: white;
 }
 
-/* ƒndar f‰rgen med hsl pÂ l‰nkar som klickas pÂ under  */
+/* √Ñndar f√§rgen med hsl p√• l√§nkar som klickas p√• under  */
 nav > ul > li a:active {
 	color: hsl(0, 100%, 50%);
 	
 }
 
-/* Barnselektor fˆr ul under nav. St‰nger av margin och padding. */
+nav > ul > li a:visited {
+	color: rgb(0, 0, 0);
+}
+
+/* Barnselektor f√∂r ul under nav. St√§nger av margin och padding. */
 nav > ul {
 	margin: 0;
 	padding: 0;
-	
 }
 
-/* Typselektor fˆr main. St‰ller in grid och padding. */
+/* G√∂r s√• att det l√§ggs ett st√∂rre √§n tecken f√∂re varje l√§nk i main */
+main a::before {
+	content: "‚ñ∫ ";
+}
+
+/* G√∂r s√• att det l√§ggs ett st√∂rre √§n tecken efter varje l√§nk i main */
+main a::after {
+	content: " ‚óÑ";
+}
+
+/* Typselektor f√∂r main. St√§ller in grid och padding. */
 main {
 	grid-column: 2 / 4;
 	grid-row: 2;
 	padding: 20px;
 }
 
-/* St‰ller in f‰rgen fˆr l‰nkar */
+/* St√§ller in f√§rgen f√∂r l√§nkar */
 a:link {
 	color: darkblue;
 }
 
-/* St‰ller in f‰rgen fˆr besˆkta l‰nkar */
+/* St√§ller in f√§rgen f√∂r bes√∂kta l√§nkar */
 a:visited {
 	color: lightblue;
 }
 
-/* St‰ller in f‰rgen fˆr l‰nkar som man hÂller musen ˆver */
+/* St√§ller in f√§rgen f√∂r l√§nkar som man h√•ller musen √∂ver */
 a:hover {
 	color: purple;
 }
 
-/* St‰ller in f‰rgen fˆr l‰nkar som ‰r aktiva. */
+/* St√§ller in f√§rgen f√∂r l√§nkar som √§r aktiva. */
 a:active {
 	color: red;
 }
 
-/* Id selektor fˆr bilder. Skapar en grid och st‰ller in gridtemplate, gˆr sÂ att det ‰r 0.2 em mellanrum mellan griddarna. */
+iframe {
+	width: 560px;
+	height: 315px; 
+}
+
+
+/* Id selektor f√∂r bilder. Skapar en grid och st√§ller in gridtemplate, g√∂r s√• att det √§r 0.2 em mellanrum mellan griddarna. */
 #bilder {
 	display: grid;
 	grid-template-columns: auto auto;
 	grid-gap: 0.2em;
 }
 
-/* Id selektor fˆr sportlag. St‰ller in grid */
+/* Id selektor f√∂r sportlag. St√§ller in grid */
 #sportlag {
 	grid-column: 3;
 	grid-row: 2;
 }
 
-/* avkomling med klassen mal-per-lag fˆr table, th, tr och td. Skapar borderspacing, border, padding, st‰nger av margin, maxbred pÂ 100vh, table-layout pÂ auto. */
+/* avkomling med klassen mal-per-lag f√∂r table, th, tr och td. Skapar borderspacing, border, padding, st√§nger av margin, maxbred p√• 100vh, table-layout p√• auto. */
 .mal-per-lag table, .mal-per-lag th, .mal-per-lag tr, .mal-per-lag td {
-	border-spacing: 5px 1rem;
+	border-spacing: 0px 1rem;
 	border: 1px solid black;
-	padding: 0.4em;
+	padding: 0.4em;*/
 	margin: 0;
 	max-width: 100vh;
 	table-layout: auto;
 }
 
-/* avkomlingselektor pÂ table. S‰tter pÂ border collapse.*/
-.mal-per-lag table {	
+/*avkomlingselektor p√• table. S√§tter p√• border collapse.*/
+.mal-per-lag > table {	
 	border-collapse: collapse;
-	outline: 1px
+	border-spacing: 0;
+	border: 1px solid red;
 }
 
-/* Typselektor fˆr footer. St‰ller in grid och s‰tter pÂ 20 px padding. */
+/* Skapar zebrastriping p√• tabellen om m√•l per lag */
+.mal-per-lag tr:nth-child(even), .mal-per-lag thead {
+  background-color: #f2f2f2;
+}
+
+/* √Ñndrar bakgrundsf√§rgen p√• den delen av sidan som man har valt att navigera till. */
+:target {
+  background-color: yellow;
+}
+
+.soderstaidion p:target::before {
+  font: 70% sans-serif;
+  content: "‚ñ∫";
+  color: limegreen;
+  margin-right: .25em;
+}
+
+/* Typselektor f√∂r footer. St√§ller in grid och s√§tter p√• 20 px padding. */
 footer {
 	grid-column: 2 / 4;
 	grid-row: 3;
 	padding: 20px;
 }
 
-/* L‰gger till fonten avara-bold. */
+/* L√§gger till fonten avara-bold. */
 @font-face {
   font-family: avara-bold;
   src: url("https://fontlibrary.org/assets/fonts/avara/6b5edf3969ff9c68c8252ed4e75d7d29/6cad51f6f31859c1bc58560c476abd67/AvaraBold.ttf") format("truetype");
 }
 
-/* St‰ller in csskoden till mobila enheter med en sk‰rmbredd pÂ mindre ‰n 750 px. */
+/* St√§ller in csskoden till mobila enheter med en sk√§rmbredd p√• mindre √§n 750 px. */
 @media only screen and (max-width: 750px){
 	
-	/* Typselektor fˆr html. Anpassar storleken fˆr smÂ sk‰rmar */
+	/* Typselektor f√∂r html. Anpassar storleken f√∂r sm√• sk√§rmar */
 	html {
 		font-size: 1.4em;
 	}
 	
-	/* Typselektor fˆr body St‰ller in grid och gˆr sÂ att texten inte gÂr frÂn kant till kant. */
+	/* Typselektor f√∂r body St√§ller in grid och g√∂r s√• att texten inte g√•r fr√•n kant till kant. */
 	body {
 		grid-template-columns: 100%;
 		grid-template-rows: auto;
 		max-width: 95%;
 	}
 	
-	/* Typselektor fˆr header. St‰ller in grid */
+	/* Typselektor f√∂r header. St√§ller in grid */
 	header {
 		grid-area: 1 / 1;
 	}
 	
-	/* Typselektor fˆr j‰mna nav. St‰ller in grid och st‰nger av padding pÂ toppen. */
+	/* Typselektor f√∂r j√§mna nav. St√§ller in grid och st√§nger av padding p√• toppen. */
 	nav:nth-child(even) {
 		grid-area: 2 / 1;
 		padding-top: 0px;
 	}
 	
-	/* Syskonselektor fˆr andra nav. St‰ller in grid. */
+	/* Syskonselektor f√∂r andra nav. St√§ller in grid. */
 	nav + nav {
 		grid-area: 3 / 1;
 	}
 	
-	/* selektor fˆr idet sportlag och main. St‰ller in grid. */
+	/* selektor f√∂r idet sportlag och main. St√§ller in grid. */
 	#sportlag, main {
 		grid-area: 4 / 1;
 	}
 	
-	/* Selektor fˆr idet bilder. St‰ller in grid. */
+	/* Selektor f√∂r idet bilder. St√§ller in grid. */
 	#bilder {
 		grid-template-columns: 1fr;
 	}
 	
-	/* Typselektor fˆr footer. St‰ller in grid. */
+	/* Typselektor f√∂r footer. St√§ller in grid. */
 	footer {
 		grid-area: 5 / 1;
 	}

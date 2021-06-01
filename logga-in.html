@@ -21,21 +21,29 @@
 		</ul>
 	</nav>
 	<main>
+		<!-- Form som skickar användaren till min-sida.html med metoden post. -->
 		<form action="min-sida.html" method="post">
 			<fieldset>
+				<!-- Titeln logga in  -->
 				<legend>Logga in</legend>
 				<p>Logga in för att välja favoritlag, med mera!</p>
-				<p>
+				
+				<!-- Inmatningsfält för epostadress -->
+				<div>
 					<label for="email">E-Postadress:</label>
 					<input name="email" id="email" type="email" required>
-				</p>
-				<p>
+				</div>
+				
+				<!-- Inmatningsfält för lösenord -->
+				<div>
 					<label for="losenord">Lösenord:</label>
 					<input name="losenord" type="password" id="losenord" required>
-				</p>
-				<p>
+				</div>
+				
+				<!-- Knapp som skickar iväg datan -->
+				<div>
 					<input type="submit" value="Logga in">
-				</p>
+				</div>
 			</fieldset>
 		</form>
 	</main>

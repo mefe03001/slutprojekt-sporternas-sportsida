@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
 	<meta charset="utf-8">
-	<title>Logga in - Sporternas Sportsida</title>
+	<title>Min sida - Sporternas Sportsida</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="style.css" rel="stylesheet">
@@ -23,50 +23,97 @@
 	<main>
 		<h2>Min sida</h2>
 		<p>Välkommen till min sida</p>
+		<!-- Form som länkar till min-sida.html med metoden post -->
 		<form action="min-sida.html" method="post">
+			
+			<!-- Fieldsetgruppering för inmatning av personliga uppgifter -->
 			<fieldset>
 				<legend>Ändra personliga uppgifter!</legend>
-				<p>
+				<div>
 					<label for="email">E-Postadress:</label>
 					<input name="email" id="email" type="email" required>
-				</p>
-				<p>
+				</div>
+				<div>
 					<label for="telefon">Telefonnummer</label>
 					<input name="telefon" id="telefon" type="tel" required>
-				</p>
+				</div>
+				<div>
+					<label for="namn">Namn</label>
+					<input type="text" name="namn" id="namn" required>
+				</div>
 			</fieldset>
+			
+			<!-- Fieldsetgruppering för inmatning av text om sig själv -->
+			<fieldset>
+				<legend>Skriv om dig själv</legend>
+				<div>
+					<textarea name="namn" id="om-mig" required>Min favoritsport är..</textarea>
+				</div>
+			</fieldset>
+			
+			<!-- Fieldsetgruppering för val av favoritlag med radioknappar -->
 			<fieldset>
 				<legend>Välj ditt favoritlag!</legend>
-				<p>
-					<input type="radio" name="favoritlag" value="hv71" id="hv71">
+				<div>
+					<input type="radio" name="favoritlag" value="hv71" id="hv71" checked>
 					<label for="hv71">HV71</label>
-				</p>
-				<p>
+				</div>
+				<div>
 					<input type="radio" name="favoritlag" value="hammarby" id="hammarby">
 					<label for="hammarby">Hammarby</label>
-				</p>
-				<p>
+				</div>
+				<div>
 					<input type="radio" name="favoritlag" value="aik" id="aik">
 					<label for="aik">AIK</label>
-				</p>
-				<p>
+				</div>
+				<div>
 					<input type="radio" name="favoritlag" value="vaxjo-lakers" id="vaxjo-lakers">
 					<label for="vaxjo-lakers">Växjö Lakers</label>
-				</p>
+				</div>
 			</fieldset>
+			
+			<!-- Fieldsetgruppering för val av favoritspelare med checkboxknappar -->
+			<fieldset>
+				<legend>Välj dina favoritspelare</legend>
+				<div>
+					<input type="checkbox" id="gosta-svensson" name="gosta-svensson" value="favoritspelare">
+					<label for="gosta-svensson"> Gösta Svensson</label>
+				</div>
+				<div>
+					<input type="checkbox" id="hans-schneider" name="hans-schneider" value="favoritspelare">
+					<label for="hans-schneider"> Hans Schneider</label>
+				</div>
+				<div>
+					<input type="checkbox" id="niels-madsen" name="niels-madsen" value="favoritspelare">
+					<label for="vehicle3"> Niels Madsen</label>
+				</div>
+				<div>
+					<input type="checkbox" id="rolf-von-bark" name="rolf-von-bark" value="favoritspelare">
+					<label for="vehicle3"> Rolf von Bark</label>
+				</div>
+			</fieldset>
+			
+			<!-- Fieldsetgruppering för val av favoritarena med selectmeny -->
 			<fieldset>
 				<legend>Välj din favoritarena</legend>
-				<p>
-					<select name="favoritarena">
-						<option value="soder-stadion">Söder stadion</option>
-						<option value="vida-arena">Vida Arena</option>
+				<div>
+					<select name="favoritarena" id="favoritarena">
+						<optgroup label="Fotboll">
+							<option value="soder-stadion">Söder stadion</option>
+						</optgroup>
+						<optgroup label="Ishockey">
+							<option value="vida-arena" selected>Vida Arena</option>
+						</optgroup>
 					</select>
-				</p>
+				</div>
 			</fieldset>
-			<p>
-					<input type="submit" value="Skicka iväg svar">
-			</p>
 			
+			<!-- Fieldsetgruppering för skicka ivägknappen -->
+			<fieldset>
+				<div>
+					<button type="submit" value="skicka-svar">Skicka iväg svar</button>
+				</div>
+			</fieldset>
 		</form>
 	</main>
 	<footer>
