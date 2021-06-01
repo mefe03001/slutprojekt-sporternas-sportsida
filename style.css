@@ -3,19 +3,19 @@ html {
 	background-color: #cdc9c9;
 }
 
-/* Typselektor för body. Skapar gridtemplate. Maxbredd på 900px. Centrerar automatiskt, lämnar 20px på toppen. 3px solid svart ram, rundar kanten med 5px. Bakgrundfärgen ska vara vit. Skapar skugga bakom. */
+/* Typselektor för body */
 body {
 	/* Skapar grid som möjliggör för trespaltslayout */
 	display: grid;
 	grid-template-columns: 2fr 2fr 6fr;
 	grid-template-rows: auto;
 	
-	/*  */
+	/* Ställer in hur body ska se ut, begränsar maxbredden, centrerar och ställer in så att inte body inte går ända upp till övre kanten. */
 	max-width: 900px;
 	margin: auto;
 	margin-top: 20px;
 	
-	/* Skapar kant och gör den rund */
+	/* Skapar kant och gör bodyn rund */
 	border: 3px solid black;
 	border-radius: 5px;
 	
@@ -24,12 +24,12 @@ body {
 	box-shadow: 0 0 600px black;
 }
 
-/* grupptypselektor för img, table, iframe, svg och video. Gör så att maxbredden är 100% av den tillgängliga ytan, detta gör så att det alltid tar upp så mycket plats som möjligt medans det inte tar upp mer utrymme än vad som är möjligt så att man inte behöver scrolla åt sidan. */
-img, table, iframe, svg, video {
+/* Grupptypselektor för img, iframe, svg och video. Gör så att maxbredden är 100% av den tillgängliga ytan, vilket gör så att det alltid tar upp så mycket plats som möjligt, men att man aldrig ska behöva scrolla åt sidan. */
+img, iframe, svg, video {
 	max-width: 100%;
 }
 
-/* Typselektor för header, nav, main och footer. Gör så att de har en 1px svart ram. */
+/* Grupptypselektor för header, nav, main och footer. Gör så att de har en 1px svart ram. */
 header, nav, main, footer {
 	border: 1px solid black;
 }
@@ -45,60 +45,62 @@ header {
 	grid-column: 2 / 4;
 	grid-row: 1;
 	
-	/* Ändrar font, centrerar text, skapar skugga bakom texten, ändrar textstorleken och ändrar färgen på texten */
+	/* Lägger till padding så att texten inte ligger precis intill kanterna */
+	padding: 20px;
+	
+	/* Ändrar font, centrerar texten, skapar skugga bakom texten, ändrar textstorleken och ändrar färgen på texten*/
 	font-family: avara-bold, "Comic Sans MS", serif;
 	text-align: center;
 	text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em darkblue;
 	font-size: 1.2em;
 	color: white;
-	
-	/* Lägger till padding så att texten inte ligger precis intill kanterna */
-	padding: 20px;
 }
 
-/* Barnselektor för h1 under header. Roterar texten -4 grader. Gör så att texten kan transformeras */
+/* Barnselektor för h1 under header. Roterar texten -4 grader. Gör så att texten får en transition till transform och att det ska ta 1 sekund. */
 header > h1 {
 	transform: rotate(-4deg);
 	transition: transform 1s;
 }
-/*  */
+
+/* Transformerar h1 på sidan när man håller över h1 */
 header > h1:hover {
 	transform: rotate(356deg);
 }
 
-/* Typselektor för nav. Ställer in grid, tar bort list stylee, ändrar fontstorlek. */
+/* Typselektor för nav. Ställer in grid */
 nav {
 	grid-column: 1;
 	grid-row: 1 / 4;
-	list-style: none;
-	font-size: 1.3em;
 }
 
-/* Typselektor för nav med jämnt nummer. Lägger till padding på toppen. */
-nav:nth-child(even) {
-	padding-top: 20px;
-}
-
-/* Syskonselektor för andra nav. Ställer in grid. */
+/* Angränsande syskonselektor för andra nav, alltså lokala menyn. Ställer in grid. */
 nav + nav {
 	grid-column: 2;
 	grid-row: 2;
 }
 
-/* Barnselektor för li under ul under nav. Stänger av list-style, centrerar texten, ändar fontstorlek, lägger till padding. */
+/* Typselektor för nav med jämnt nummer, alltså den globala menyn. Lägger till padding på toppen. */
+nav:nth-child(even) {
+	padding-top: 20px;
+}
+
+/* Barnselektor för li under ul under nav som används för både lokala och globala menyn. */
 nav > ul > li {
+	/* Stänger av list-style, centrerar texten och ändar fontstorlek. */
 	list-style: none;
 	text-align: center;
-	font-size: 1.2em;
+	font-size: 1.6em;
+	
+	/* Lägger till padding för att texten inte ska gå ända ut till kanterna*/
 	padding: 4px;
 } 
 
-/* Ändrar färgen för länk under li under ul under nav. */
-nav > ul > li > a:link {
+/* Ändrar färgen för länkar under li under ul under nav. Samma effekt på länken när den är besökt så att färgen inte ändras, på navigationslänkar ser det bättre ut om de ser likadana ut när de är obesökta och besökta. Alltså för länkar i globala och lokala menyn. */
+nav > ul > li > a:link, nav > ul > li a:visited {
 	color: rgb(0, 0, 0);
 }
 
-/* För länk när man håller över den under li under ul under nav. Skapar border, skugga, skapar bakgrundsgradient. */
+/* Barnselektor för länkna i länkarna i globala och lokala menyn. När man håller över den skapas border, skugga och skapar bakgrundsgradient. */
 nav > ul > li:hover {
 	border: 2px solid black;
 	text-shadow: 2px 2px 4px #000000;
@@ -106,115 +108,112 @@ nav > ul > li:hover {
 	background-image: linear-gradient(180deg, white, gray);
 }
 
-/* Ändrar färgen på linkar under li under ul under nav */
+/* Barnselektor för länkna i länkarna i globala och lokala menyn. Ändrar färg på texten när man håller över. */
 nav > ul > li > a:hover {
 	color: white;
 }
 
-/* Ändar färgen med hsl på länkar som klickas på under  */
+/* Ändar färgen med på länkarna i globala och lokala menyn när man klickar på dem  */
 nav > ul > li a:active {
 	color: hsl(0, 100%, 50%);
-	
 }
 
-nav > ul > li a:visited {
-	color: rgb(0, 0, 0);
-}
-
-/* Barnselektor för ul under nav. Stänger av margin och padding. */
+/* Barnselektor för ul under nav. Stänger av margin och padding så att globala och lokala menyn inte är mer eller mindre åt något håll. */
 nav > ul {
 	margin: 0;
 	padding: 0;
 }
 
-/* Gör så att det läggs ett större än tecken före varje länk i main */
+/* Typselektor för main. */
+main {
+	/* Ställer in grid */
+	grid-column: 2 / 4;
+	grid-row: 2;
+	
+	/* Ställer in padding */
+	padding: 20px;
+}
+
+/* Angränsande syskonselektor för main när det ligger två nav innan. Ställer in grid */
+nav + nav + main {
+	grid-column: 3;
+	grid-row: 2;
+}
+
+/* Gör så att det läggs en pil åt höger före varje länk i main */
 main a::before {
 	content: "► ";
 }
 
-/* Gör så att det läggs ett större än tecken efter varje länk i main */
+/* Gör så att det läggs en pil åt vänster efter varje länk i main */
 main a::after {
 	content: " ◄";
 }
 
-/* Typselektor för main. Ställer in grid och padding. */
-main {
-	grid-column: 2 / 4;
-	grid-row: 2;
-	padding: 20px;
+/* Idselektor för en bild på en fotboll. Gör så att klassen visas som ett block för att inget annat ska komma brevid bilden. Begränsar maxbredden på bilden. Centrerar bilden med margin auto. Deklarerar animationens namn, gör att den tar 2,5 sekunder, gör att den pågår för evigt och att den ska gå lika snabbt hela tiden. */
+#fotboll {
+	display: block;
+	max-height: 20rem;
+	margin: auto;
+	animation-name: spin;
+	animation-duration: 2500ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
-/* Ställer in färgen för länkar */
+/* Typselektor för alla länkar. Ställer in färgen för länkar */
 a:link {
 	color: darkblue;
 }
 
-/* Ställer in färgen för besökta länkar */
+/* Typselektor för alla länkar. Ställer in färgen för besökta länkar */
 a:visited {
 	color: lightblue;
 }
 
-/* Ställer in färgen för länkar som man håller musen över */
+/* Typselektor för alla länkar. Ställer in färgen för länkar som man håller musen över */
 a:hover {
 	color: purple;
 }
 
-/* Ställer in färgen för länkar som är aktiva. */
+/* Typselektor för alla länkar. Ställer in färgen för länkar som är aktiva. */
 a:active {
 	color: red;
 }
 
+/* Typselektor för iframe. Ställer in storleken för iframes. */
 iframe {
 	width: 560px;
 	height: 315px; 
 }
 
-
-/* Id selektor för bilder. Skapar en grid och ställer in gridtemplate, gör så att det är 0.2 em mellanrum mellan griddarna. */
+/* Id selektor för bilder. Skapar en grid och ställer in hur den ska se ut och gör så att det är mellanrum mellan bilderna. */
 #bilder {
 	display: grid;
 	grid-template-columns: auto auto;
-	grid-gap: 0.2em;
+	grid-gap: 0.2rem;
 }
 
-/* Id selektor för sportlag. Ställer in grid */
-#sportlag {
-	grid-column: 3;
-	grid-row: 2;
-}
-
-/* avkomling med klassen mal-per-lag för table, th, tr och td. Skapar borderspacing, border, padding, stänger av margin, maxbred på 100vh, table-layout på auto. */
-.mal-per-lag table, .mal-per-lag th, .mal-per-lag tr, .mal-per-lag td {
-	border-spacing: 0px 1rem;
-	border: 1px solid black;
-	padding: 0.4em;*/
-	margin: 0;
-	max-width: 100vh;
-	table-layout: auto;
-}
-
-/*avkomlingselektor på table. Sätter på border collapse.*/
-.mal-per-lag > table {	
-	border-collapse: collapse;
+/* Ställer in tabellen om mål per lag. Avkomling med klassen mal-per-lag för table, th, tr och td. Stänger av borderspacing, skapar border, lägger till padding, stänger av margin, maxbred på 100vw, table-layout på auto, stänger av borderspacing och sätter på border-collapse. */
+.mal-per-lag table, .mal-per-lag th, .mal-per-lag td, .mal-per-lag {
 	border-spacing: 0;
-	border: 1px solid red;
+	border: 1px solid black;
+	padding: 0.4em;
+	margin: 0;
+	max-width: 100vw;
+	table-layout: auto;
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 /* Skapar zebrastriping på tabellen om mål per lag */
 .mal-per-lag tr:nth-child(even), .mal-per-lag thead {
-  background-color: #f2f2f2;
+	background-color: #f2f2f2;
 }
 
 /* Ändrar bakgrundsfärgen på den delen av sidan som man har valt att navigera till. */
 :target {
-  background-color: yellow;
-}
-
-.soderstaidion p:target::before {
-  font: 70% sans-serif;
-  content: "►";
-  color: limegreen;
-  margin-right: .25em;
+	background-color: yellow;
 }
 
 /* Typselektor för footer. Ställer in grid och sätter på 20 px padding. */
@@ -230,10 +229,20 @@ footer {
   src: url("https://fontlibrary.org/assets/fonts/avara/6b5edf3969ff9c68c8252ed4e75d7d29/6cad51f6f31859c1bc58560c476abd67/AvaraBold.ttf") format("truetype");
 }
 
+/* Skapar två keyframes där en är 0 grader (vilket är standard) och den andra är 360 grader vilket gör att bilden snurrar ett helt varv. */
+@keyframes spin {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(360deg);
+	}
+}
+
 /* Ställer in csskoden till mobila enheter med en skärmbredd på mindre än 750 px. */
 @media only screen and (max-width: 750px){
 	
-	/* Typselektor för html. Anpassar storleken för små skärmar */
+	/* Typselektor för html. Anpassar textstorleken för små skärmar */
 	html {
 		font-size: 1.4em;
 	}
@@ -250,23 +259,23 @@ footer {
 		grid-area: 1 / 1;
 	}
 	
-	/* Typselektor för jämna nav. Ställer in grid och stänger av padding på toppen. */
+	/* Typselektor för jämna nav, alltså globala menyn. Ställer in grid och stänger av padding på toppen. */
 	nav:nth-child(even) {
 		grid-area: 2 / 1;
 		padding-top: 0px;
 	}
 	
-	/* Syskonselektor för andra nav. Ställer in grid. */
+	/* Angränsande syskonselektor för andra nav. Ställer in grid. */
 	nav + nav {
 		grid-area: 3 / 1;
 	}
 	
-	/* selektor för idet sportlag och main. Ställer in grid. */
-	#sportlag, main {
+	/* Typselektor för main och angränsande syskonselektor för main när det ligger två nav innan. Ställer in grid. */
+	main, nav + nav + main {
 		grid-area: 4 / 1;
 	}
 	
-	/* Selektor för idet bilder. Ställer in grid. */
+	/* Idselektor för id:et bilder. Ställer in grid. */
 	#bilder {
 		grid-template-columns: 1fr;
 	}

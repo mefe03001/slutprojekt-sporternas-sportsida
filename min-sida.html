@@ -3,8 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>Min sida - Sporternas Sportsida</title>
+	
+	<!-- Ställer in viewport så att webbsidan skalas rätt på alla enheter. -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Taggen http-equiv="X-UA-Compatible" gör så att Internet Explorer tolkar koden på ett visst sätt, i detta fallet med med content="ie=edge" som gör så att webbläsaren Internet Explorer använder de senaste standarderna som stöds för webbläsaren, exempelvis använder då IE 11 HTML5 och CSS3. -->
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
 	<link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -20,6 +25,7 @@
 			<li><a href="logga-in.html">Logga in / Till Min Sida</a></li>
 		</ul>
 	</nav>
+	
 	<main>
 		<h2>Min sida</h2>
 		<p>Välkommen till min sida</p>
@@ -41,16 +47,33 @@
 					<label for="namn">Namn</label>
 					<input type="text" name="namn" id="namn" required>
 				</div>
+				<div>
+					<label for="profil-fardigstalld">Din proil är 70% färdigställd:</label>
+					<progress id="profil-fardigstalld" max="100" value="70"> 70% </progress>
+				</div>
 			</fieldset>
 			
 			<!-- Fieldsetgruppering för inmatning av text om sig själv -->
 			<fieldset>
 				<legend>Skriv om dig själv</legend>
 				<div>
-					<textarea name="namn" id="om-mig" required>Min favoritsport är..</textarea>
+					<textarea name="namn" id="om-mig" required>Min favoritsport är... </textarea>
 				</div>
 			</fieldset>
 			
+			<!-- Fieldsetgruppering för inmatning av favoritsport -->
+			<fieldset>
+				<legend>Skriv in din favoritsport</legend>
+				<div>
+					<label for="min-favoritsport">Min favoritsport är: </label>
+					<input list="lista-med-sporter" id="min-favoritsport" name="min-favoritsport" />
+					<datalist id="lista-med-sporter">
+						<option value="Fotboll">
+						<option value="Ishockey">
+					</datalist>
+				</div>
+			</fieldset>
+		
 			<!-- Fieldsetgruppering för val av favoritlag med radioknappar -->
 			<fieldset>
 				<legend>Välj ditt favoritlag!</legend>
@@ -85,11 +108,11 @@
 				</div>
 				<div>
 					<input type="checkbox" id="niels-madsen" name="niels-madsen" value="favoritspelare">
-					<label for="vehicle3"> Niels Madsen</label>
+					<label for="niels-madsen"> Niels Madsen</label>
 				</div>
 				<div>
 					<input type="checkbox" id="rolf-von-bark" name="rolf-von-bark" value="favoritspelare">
-					<label for="vehicle3"> Rolf von Bark</label>
+					<label for="rolf-von-bark"> Rolf von Bark</label>
 				</div>
 			</fieldset>
 			
@@ -116,6 +139,7 @@
 			</fieldset>
 		</form>
 	</main>
+	
 	<footer>
 		<p><em>Sporternas Sportsida</em></p>
 	</footer>
