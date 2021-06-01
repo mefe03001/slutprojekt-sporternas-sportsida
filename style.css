@@ -100,7 +100,7 @@ nav > ul > li > a:link, nav > ul > li a:visited {
 	color: rgb(0, 0, 0);
 }
 
-/* Barnselektor för länkna i länkarna i globala och lokala menyn. När man håller över den skapas border, skugga och skapar bakgrundsgradient. */
+/* Barnselektor för li under ul under nav, alltså knapparna för globala och lokala menyn. När man håller över den skapas border, skugga och  bakgrundsgradient. */
 nav > ul > li:hover {
 	border: 2px solid black;
 	text-shadow: 2px 2px 4px #000000;
@@ -108,7 +108,7 @@ nav > ul > li:hover {
 	background-image: linear-gradient(180deg, white, gray);
 }
 
-/* Barnselektor för länkna i länkarna i globala och lokala menyn. Ändrar färg på texten när man håller över. */
+/* Barnselektor för a under li under ul under nav, alltså länkarna i globala och lokala menyn. Ändrar färg på texten när man håller över. */
 nav > ul > li > a:hover {
 	color: white;
 }
@@ -118,7 +118,7 @@ nav > ul > li a:active {
 	color: hsl(0, 100%, 50%);
 }
 
-/* Barnselektor för ul under nav. Stänger av margin och padding så att globala och lokala menyn inte är mer eller mindre åt något håll. */
+/* Barnselektor för ul under nav. Stänger av margin och padding så att globala och lokala menyn inte texten är mer eller mindre åt något håll. */
 nav > ul {
 	margin: 0;
 	padding: 0;
@@ -150,11 +150,14 @@ main a::after {
 	content: " ◄";
 }
 
-/* Idselektor för en bild på en fotboll. Gör så att klassen visas som ett block för att inget annat ska komma brevid bilden. Begränsar maxbredden på bilden. Centrerar bilden med margin auto. Deklarerar animationens namn, gör att den tar 2,5 sekunder, gör att den pågår för evigt och att den ska gå lika snabbt hela tiden. */
+/* Idselektor för en bild på en fotboll. */
 #fotboll {
+	/* Gör så att klassen visas som ett block för att inget annat ska komma bredvid bilden. Begränsar maxbredden på bilden. Centrerar bilden med margin auto. */
 	display: block;
 	max-height: 20rem;
 	margin: auto;
+	
+	/* Deklarerar animationens namn, gör att den tar 2,5 sekunder, gör att den pågår för evigt och att den ska gå lika snabbt hela tiden. */
 	animation-name: spin;
 	animation-duration: 2500ms;
 	animation-iteration-count: infinite;
@@ -176,7 +179,7 @@ a:hover {
 	color: purple;
 }
 
-/* Typselektor för alla länkar. Ställer in färgen för länkar som är aktiva. */
+/* Typselektor för alla länkar. Ställer in färgen för länkar som är aktiva (man klickar på). */
 a:active {
 	color: red;
 }
@@ -194,7 +197,7 @@ iframe {
 	grid-gap: 0.2rem;
 }
 
-/* Ställer in tabellen om mål per lag. Avkomling med klassen mal-per-lag för table, th, tr och td. Stänger av borderspacing, skapar border, lägger till padding, stänger av margin, maxbred på 100vw, table-layout på auto, stänger av borderspacing och sätter på border-collapse. */
+/* Ställer in tabellen om mål per lag. Avkomling med klassen mal-per-lag för table, th, tr, td och klasselektor för mal-per-lag. Stänger av borderspacing, skapar border, lägger till padding, stänger av margin, maxbred på 100vw, table-layout på auto, stänger av borderspacing och sätter på border-collapse. */
 .mal-per-lag table, .mal-per-lag th, .mal-per-lag td, .mal-per-lag {
 	border-spacing: 0;
 	border: 1px solid black;
